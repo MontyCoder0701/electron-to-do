@@ -30,7 +30,7 @@ body {
   margin-bottom: 10px;
   font-size: 20px;
   border: none;
-  width: webkit-fill-available;
+  width: -webkit-fill-available;
 }
 
 .text-container {
