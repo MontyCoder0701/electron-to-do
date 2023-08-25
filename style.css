@@ -1,0 +1,45 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-image: linear-gradient(to bottom right, #fdfcfb, #e2d1c3);
+}
+.delete-btn {
+  border: none;
+  border-radius: 20%;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.edit-btn {
+  border: none;
+  border-radius: 20%;
+  padding: 5px;
+}
+
+.list-group-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.form-input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  border: none;
+  width: webkit-fill-available;
+}
+
+.text-container {
+  margin: auto;
+  margin-top: 10%;
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  z-index: 1;
+}

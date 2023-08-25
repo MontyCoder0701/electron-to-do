@@ -12,7 +12,8 @@
     "appId": "com.example.todoapp",
     "mac": {
       "target": "dmg",
-      "category": "your.app.category"
+      "category": "your.app.category",
+      "icon": "assets/icon.icns"
     },
     "directories": {
       "output": "dist"
