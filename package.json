@@ -1,10 +1,25 @@
 {
-  "main" : "main.js",
+  "name": "todoapp",  
+  "version": "1.0.0",
+  "description": "Made with Electron",
+  "author": "Soo Lee",
+  "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-
+  "build": {
+    "productName": "ToDoApp",
+    "appId": "com.example.todoapp",
+    "mac": {
+      "target": "dmg",
+      "category": "your.app.category"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  },
   "devDependencies": {
-    "electron": "^26.1.0"
+    "electron": "^26.1.0",
+    "electron-builder": "^24.6.3"
   }
 }
