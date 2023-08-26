@@ -77,7 +77,11 @@ function removeItem(e) {
   if (e.target.classList.contains("up")) {
     let li = e.target.parentNode;
     let parent = li.parentNode;
-    parent.insertBefore(li, parent.firstChild);
+    let prevSibling = li.previousSibling;
+    console.log(prevSibling);
+    if (prevSibling) {
+      parent.insertBefore(li, prevSibling);
+    }
   }
   if (e.target.classList.contains("down")) {
     let li = e.target.parentNode;
