@@ -49,10 +49,15 @@ function addItemToList(newItem) {
   upButton.className = "up-btn up";
   upButton.appendChild(document.createTextNode("Up"));
 
+  const downButton = document.createElement("button");
+  downButton.className = "down-btn down";
+  downButton.appendChild(document.createTextNode("Down"));
+
   li.appendChild(document.createTextNode(newItem));
   li.appendChild(deleteButton);
   li.appendChild(editButton);
   li.appendChild(upButton);
+  li.appendChild(downButton);
 
   document.getElementById("items").appendChild(li);
 }
@@ -62,7 +67,6 @@ function removeItem(e) {
   if (e.target.classList.contains("delete")) {
     let li = e.target.parentNode;
     items.removeChild(li);
-    updateLocalStorage();
   }
   if (e.target.classList.contains("edit")) {
     document.getElementById("item").value =
@@ -75,6 +79,15 @@ function removeItem(e) {
     let parent = li.parentNode;
     parent.insertBefore(li, parent.firstChild);
   }
+  if (e.target.classList.contains("down")) {
+    let li = e.target.parentNode;
+    let parent = li.parentNode;
+    let nextSibling = li.nextSibling;
+    if (nextSibling) {
+      parent.insertBefore(nextSibling, li);
+    }
+  }
+  updateLocalStorage();
 }
 
 function updateLocalStorage() {
