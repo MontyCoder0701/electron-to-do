@@ -1,20 +1,25 @@
 window.onload = () => {
-  const form1 = document.querySelector("#addForm");
+  const form = document.querySelector("#addForm");
   const items = document.getElementById("items");
-  const submit = document.getElementById("submit");
   let editItem = null;
 
   const storedItems = JSON.parse(localStorage.getItem("items")) || [];
   storedItems.forEach((item) => addItemToList(item));
 
-  form1.addEventListener("submit", addItem);
-  items.addEventListener("click", removeItem);
+  form.addEventListener("submit", addItem);
+  items.addEventListener("click", function (e) {
+    handleDelete(e);
+    handleEdit(e);
+    handleMoveUp(e);
+    handleMoveDown(e);
+    updateLocalStorage();
+  });
 };
 
 function addItem(e) {
   e.preventDefault();
+  const submit = document.getElementById("submit");
   const itemInput = document.getElementById("item");
-  const items = document.getElementById("items");
 
   if (submit.value != "+") {
     editItem.target.parentNode.childNodes[0].data = itemInput.value;
@@ -37,61 +42,56 @@ function addItemToList(newItem) {
   const li = document.createElement("li");
   li.className = "list-group-item";
 
-  const deleteButton = document.createElement("button");
-  deleteButton.className = "delete-btn delete";
-  deleteButton.appendChild(document.createTextNode("-"));
-
-  const editButton = document.createElement("button");
-  editButton.className = "edit-btn edit";
-  editButton.appendChild(document.createTextNode("Edit"));
-
-  const upButton = document.createElement("button");
-  upButton.className = "up-btn up";
-  upButton.appendChild(document.createTextNode("Up"));
-
-  const downButton = document.createElement("button");
-  downButton.className = "down-btn down";
-  downButton.appendChild(document.createTextNode("Down"));
+  const buttons = [
+    new Button("-", "small-btn delete"),
+    new Button("Edit", "general-btn edit"),
+    new Button("Up", "general-btn up"),
+    new Button("Down", "general-btn down"),
+  ];
 
   li.appendChild(document.createTextNode(newItem));
-  li.appendChild(deleteButton);
-  li.appendChild(editButton);
-  li.appendChild(upButton);
-  li.appendChild(downButton);
+
+  buttons.forEach((buttonInfo) => {
+    li.appendChild(buttonInfo.createButton());
+  });
 
   document.getElementById("items").appendChild(li);
 }
 
-function removeItem(e) {
-  e.preventDefault();
+function handleDelete(e) {
   if (e.target.classList.contains("delete")) {
     let li = e.target.parentNode;
     items.removeChild(li);
   }
+}
+
+function handleEdit(e) {
   if (e.target.classList.contains("edit")) {
     document.getElementById("item").value =
       e.target.parentNode.childNodes[0].data;
     submit.value = "Edit";
     editItem = e;
   }
+}
+
+function handleMoveUp(e) {
   if (e.target.classList.contains("up")) {
     let li = e.target.parentNode;
-    let parent = li.parentNode;
-    let prevSibling = li.previousSibling;
-    console.log(prevSibling);
+    let prevSibling = li.previousElementSibling;
     if (prevSibling) {
-      parent.insertBefore(li, prevSibling);
+      li.parentNode.insertBefore(li, prevSibling);
     }
   }
+}
+
+function handleMoveDown(e) {
   if (e.target.classList.contains("down")) {
     let li = e.target.parentNode;
-    let parent = li.parentNode;
-    let nextSibling = li.nextSibling;
+    let nextSibling = li.nextElementSibling;
     if (nextSibling) {
-      parent.insertBefore(nextSibling, li);
+      li.parentNode.insertBefore(nextSibling, li);
     }
   }
-  updateLocalStorage();
 }
 
 function updateLocalStorage() {
