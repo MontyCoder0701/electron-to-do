@@ -45,9 +45,14 @@ function addItemToList(newItem) {
   editButton.className = "edit-btn edit";
   editButton.appendChild(document.createTextNode("Edit"));
 
+  const upButton = document.createElement("button");
+  upButton.className = "up-btn up";
+  upButton.appendChild(document.createTextNode("Up"));
+
   li.appendChild(document.createTextNode(newItem));
   li.appendChild(deleteButton);
   li.appendChild(editButton);
+  li.appendChild(upButton);
 
   document.getElementById("items").appendChild(li);
 }
@@ -64,6 +69,11 @@ function removeItem(e) {
       e.target.parentNode.childNodes[0].data;
     submit.value = "Edit";
     editItem = e;
+  }
+  if (e.target.classList.contains("up")) {
+    let li = e.target.parentNode;
+    let parent = li.parentNode;
+    parent.insertBefore(li, parent.firstChild);
   }
 }
 

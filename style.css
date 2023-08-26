@@ -7,16 +7,39 @@ body {
 }
 .delete-btn {
   border: none;
+  color: white;
   border-radius: 20%;
   margin-left: 10px;
   margin-right: 10px;
   font-size: 20px;
 }
 
+.delete-btn:hover {
+  background-color: #e2d1c3;
+}
+
 .edit-btn {
   border: none;
+  color: white;
   border-radius: 20%;
   padding: 5px;
+  margin-right: 5px;
+}
+
+.edit-btn:hover {
+  background-color: #e2d1c3;
+}
+
+.up-btn {
+  border: none;
+  color: white;
+  border-radius: 20%;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.up-btn:hover {
+  background-color: #e2d1c3;
 }
 
 .list-group-item {
