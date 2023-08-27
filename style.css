@@ -7,6 +7,7 @@ body {
 }
 
 .small-btn {
+  opacity: 0;
   border: none;
   color: white;
   border-radius: 20%;
@@ -16,10 +17,12 @@ body {
 }
 
 .small-btn:hover {
+  opacity: 1;
   background-color: #e2d1c3;
 }
 
 .general-btn {
+  opacity: 0;
   border: none;
   color: white;
   border-radius: 20%;
@@ -28,6 +31,7 @@ body {
 }
 
 .general-btn:hover {
+  opacity: 1;
   background-color: #e2d1c3;
 }
 
