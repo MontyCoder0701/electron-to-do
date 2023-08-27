@@ -1,6 +1,6 @@
-const { app, BrowserWindow } = require("electron");
-const path = require("path");
-const url = require("url");
+import { app, BrowserWindow } from "electron";
+import { join } from "path";
+import { format } from "url";
 
 let mainWindow;
 
@@ -14,8 +14,8 @@ function createWindow() {
   });
 
   mainWindow.loadURL(
-    url.format({
-      pathname: path.join(__dirname, "index.html"),
+    format({
+      pathname: join(__dirname, "index.html"),
       protocol: "file:",
       slashes: true,
     })

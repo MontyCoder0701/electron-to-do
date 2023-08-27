@@ -16,6 +16,11 @@ window.onload = () => {
   });
 };
 
+function startTimer() {
+  const timer = new CountdownTimer(600);
+  timer.start();
+}
+
 function addItem(e) {
   e.preventDefault();
   const submit = document.getElementById("submit");
