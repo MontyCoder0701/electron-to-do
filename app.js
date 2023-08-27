@@ -1,3 +1,5 @@
+let buttonVisible = false;
+
 window.onload = () => {
   const form = document.querySelector("#addForm");
   const items = document.getElementById("items");
@@ -19,6 +21,20 @@ window.onload = () => {
 function startTimer() {
   const timer = new CountdownTimer(600);
   timer.start();
+}
+
+function showButtons() {
+  if (buttonVisible == false) {
+    document.querySelectorAll("[class*='btn']").forEach((el) => {
+      el.style.display = "table-row";
+      buttonVisible = true;
+    });
+  } else {
+    document.querySelectorAll("[class*='btn']").forEach((el) => {
+      el.style.display = "none";
+      buttonVisible = false;
+    });
+  }
 }
 
 function addItem(e) {

@@ -10,8 +10,13 @@
     <title>Check!</title>
   </head>
   <body>
-    <div id="timer" class="general-button">
-      <button id="timer-start" onclick="startTimer()">Start</button>
+    <div class="top-bar">
+      <div id="timer">
+        <button class="top-button" id="timer-start" onclick="startTimer()">
+          Start
+        </button>
+      </div>
+      <button class="top-button" id="edit" onclick="showButtons()">Edit</button>
     </div>
     <div class="text-container">
       <form id="addForm">

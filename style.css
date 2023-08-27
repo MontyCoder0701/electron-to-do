@@ -6,32 +6,40 @@ body {
   background-image: linear-gradient(to bottom right, #fdfcfb, #e2d1c3);
 }
 
-.small-btn {
-  opacity: 0;
+.top-bar {
+  display: flex;
+}
+
+[class*="btn"] {
+  display: none;
+}
+
+.top-button {
   border: none;
   color: white;
-  border-radius: 20%;
+  border-radius: 10px;
   margin-left: 10px;
   margin-right: 10px;
   font-size: 20px;
+  background-color: #e2d1c3;
 }
 
-.small-btn:hover {
-  opacity: 1;
+.small-btn {
+  border: none;
+  color: white;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
   background-color: #e2d1c3;
 }
 
 .general-btn {
-  opacity: 0;
   border: none;
   color: white;
-  border-radius: 20%;
+  border-radius: 10px;
   padding: 5px;
   margin-right: 5px;
-}
-
-.general-btn:hover {
-  opacity: 1;
   background-color: #e2d1c3;
 }
 
